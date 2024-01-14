@@ -5,8 +5,6 @@ import cors from 'cors';
 import connectDB from './mongodb/connect.js';
 import postRoutes from './routes/postRoutes.js';
 import dalleRoutes from './routes/dalleRoutes.js';
-import { MongoClient, ServerApiVersion } from 'mongodb';
-
 dotenv.config();
 
 const app = express();
@@ -23,16 +21,7 @@ app.get('/', async (req, res) => {
 });
 
 
-
 const startServer = async () => {
-
-  const client = new MongoClient(process.env.MONGODB_URL, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: false,
-      deprecationErrors: true,
-    }
-  });
   
   try {
     connectDB(process.env.MONGODB_URL)

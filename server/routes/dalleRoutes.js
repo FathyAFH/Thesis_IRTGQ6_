@@ -37,12 +37,5 @@ router.route('/').post(async (req, res) => {
   }
 });
 
-router.route("/generate").post(async(req,res)=>{
-  
-  const openai = new OpenAI()
-
-  const image = await openai.images.generate({ model: "dall-e-3", prompt: "A cute baby sea otter" });
-  res.status(200).json(image.data)
-})
 
 export default router;
